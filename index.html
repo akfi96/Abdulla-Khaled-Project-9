@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Righteous&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <section >
+        <div class="container d-flex flex-column align-items-center justify-content-center">
+            <h1 class="pacifico-regular text-center my-5">Bookmarker</h1>
+            <div class="book-input w-100 p-3">
+                <h2 class="text-center fs-3 my-4"><i class="fa-solid fa-bookmark me-2"></i>Bookmark your favorite sites<i class="fa-solid fa-bookmark ms-2"></i></h2>
+                <label for="site-name" class="fw-bold my-2"><i class="fa-solid fa-book-bookmark me-2"></i>Site Name</label>
+                <input type="text" id="site-name" class="w-100 p-2 mb-4" placeholder="Bookmark Name" >
+                <label for="site-url" class="fw-bold my-2"><i class="fa-solid fa-link me-2"></i>Site Url</label>
+                <input type="text" id="site-url" class="w-100 p-2 mb-4" placeholder="Website URL">
+                <button onclick="add()" class="d-block m-auto mb-4" id="submitBtn">Submit</button>
+            </div>
+        </div>
+        <div class="container p-4 pb-1">
+            <div class="row bg-white">
+                <div class="col-lg-3">
+                    <div class="text-center py-1">
+                        <h3 class="fs-6 fw-bold">INDEX</h3>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="text-center py-1">
+                        <h3 class="fs-6 fw-bold">WEBSITE NAME</h3>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="text-center py-1">
+                        <h3 class="fs-6 fw-bold">VISIT</h3>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="text-center py-1">
+                        <h3 class="fs-6 fw-bold">DELETE</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="mainSection"></div>
+    </section>
+    <!-- js -->
+    <script src="js/index.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/ba0a6964ee.js" crossorigin="anonymous"></script>
+</body>
+</html>
