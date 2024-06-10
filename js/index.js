@@ -2,29 +2,38 @@ var siteName = document.getElementById("site-name");
 var siteUrl = document.getElementById("site-url");
 var mainSection = document.getElementById("mainSection");
 
-var bookContainer = [];
+var bookContainer;
 
-function add(){
-    var book_mark = { 
-        name : siteName.value, 
-        url : siteUrl.value }
-
-    bookContainer.push(book_mark)
-    console.log(bookContainer);
-    display()
-    clear()
+if (localStorage.getItem("bookmarks") == null) {
+  bookContainer = [];
+} else {
+  bookContainer = JSON.parse(localStorage.getItem("bookmarks"));
+  display();
 }
 
-function clear(){
-    siteName.value = null
-    siteUrl.value = null
+function add() {
+  var book_mark = {
+    name: siteName.value,
+    url: siteUrl.value,
+  };
+
+  bookContainer.push(book_mark);
+  localStorage.setItem("bookmarks", JSON.stringify(bookContainer));
+  console.log(bookContainer);
+  display();
+  clear();
 }
 
-function display(){
-    var container = "";
+function clear() {
+  siteName.value = null;
+  siteUrl.value = null;
+}
 
-    for (var i = 0 ; i < bookContainer.length ; i++){
-        container += `<div class="container px-4 mb-1">
+function display() {
+  var container = "";
+
+  for (var i = 0; i < bookContainer.length; i++) {
+    container += `<div class="container px-4 mb-1">
         <div class="row bg-white">
             <div class="col-lg-3">
                 <div class="text-center py-1">
@@ -43,13 +52,19 @@ function display(){
             </div>
             <div class="col-lg-3">
                 <div class="text-center py-1">
-                    <button class="btn btn-danger"><i class="fa-solid fa-trash"></i>Delete</button>
+                    <button onclick="deleteMe(${i})" class="btn btn-danger"><i class="fa-solid fa-trash"></i>Delete</button>
                 </div>
             </div>
         </div>
-    </div>`
-    }
+    </div>`;
+  }
 
-    mainSection.innerHTML = container;
+  mainSection.innerHTML = container;
+}
+
+function deleteMe(x){
+  bookContainer.splice(x , 1)
+  display()
+  localStorage.setItem("bookmarks", JSON.stringify(bookContainer));
 }
 // console.log(siteName, siteUrl); testing this upload
